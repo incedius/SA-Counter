@@ -6,7 +6,6 @@ module.exports = function saCounter(mod) {
     let counter = 0;
     let castingSA = false;
     let lastSkillSA = false;
-    let cid;
     let enabledResults = true // Actual results that pop after boss is killed
     let enabledSmall = false // "Blocked after: X hits" message
     let job;
@@ -21,6 +20,11 @@ module.exports = function saCounter(mod) {
         }, 250)
         
     }
+
+    if(mod.majorPatchVersion >= 85){
+        mod.game.initialize
+        job = (mod.game.me.templateId - 10101) % 100
+      }
 
     mod.command.add('block', (ext) => {
         if (ext == 'help') {
@@ -50,24 +54,19 @@ module.exports = function saCounter(mod) {
         }
     })
 
-    mod.hook('S_LOGIN', 13, (event) => {
-        cid = event.gameId
-        job = (event.templateId - 10101) % 100
-    })
-
-    mod.hook('S_EACH_SKILL_RESULT', 12, (event) => {
+    mod.hook('S_EACH_SKILL_RESULT', 14, (event) => {
         if (job == 1) {
-            if (SA_ID.includes(event.skill.id) && event.source == cid && !lastSkillSA && Object.keys(boss).includes(event.target.toString())) {
+            if (SA_ID.includes(event.skill.id) && event.source == mod.game.me.gameId && !lastSkillSA && Object.keys(boss).includes(event.target.toString())) {
                 boss[event.target]['totalSa']++
             }
-            if (SA_ID.includes(event.skill.id) && event.source == cid) {
+            if (SA_ID.includes(event.skill.id) && event.source == mod.game.me.gameId) {
                 if (Object.keys(boss).includes(event.target.toString())) {
                     boss[event.target]['bigCounter']++
                 }
                 counter++
                 lastSkillSA = true
                 castingSA = true
-            } else if (!SA_ID.includes(event.skill.id) && event.source == cid) {
+            } else if (!SA_ID.includes(event.skill.id) && event.source == mod.game.me.gameId) {
                 lastSkillSA = false
                 castingSA = false
                 counter = 0

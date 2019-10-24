@@ -1,12 +1,12 @@
 {
     "disableAutoUpdate": false,
     "name": "sa-counter",
-    "author": "Haato",
+    "authors": ["Haato","TerableCoder","Incedius"],
     "description": "Counts spring attack hits before blocking",
-    "version": "1.3",
+    "version": "1.4",
     "options": {
         "niceName": "SA Counter"
     },
-    "servers": ["https://raw.githubusercontent.com/Haato3o/SA-Counter/master/"],
-    "supportUrl": "https://github.com/Haato3o/SA-Counter/issues"
+    "servers": ["https://raw.githubusercontent.com/incedius/SA-Counter/master/"],
+    "supportUrl": "https://github.com/incedius/SA-Counter/issues"
 }

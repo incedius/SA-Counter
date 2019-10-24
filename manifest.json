@@ -1,7 +1,13 @@
 {
     "files": {
-        "index.js": "88EADCC16868639FC1EEA6DC43AD4E639C0256C6EACE2B7066FD669D7F7EF875",
-        "module.json": "E0B917FFF4A81822A2A0973C978A3CCC83EE2D8358B2B87DB1384846ADEC9E45"
+        "README.md": "b5b85edb8bb42dfd719b1b0c6ea7488decb66cc7e0d20724c9017c96eada9484",
+        "index.js": "5bf8bb6aea0fdddf04207aca21d4e13c116b5b24692e4d5bc879991b32bb7386",
+        "module.config.json": "c0a16dfca2dc00eb2f4c5670a98fcc163fd4f85c34b04fe825e6c3e79de88ca1",
+        "module.json": "57c50a976c1ba80d6adc08b35442b135889fac4a232b6a227c9ba61d9b60d880"
     },
-    "defs": {}
+    "defs": {
+        "C_PRESS_SKILL": 4,
+        "S_BOSS_GAGE_INFO": 3,
+        "S_EACH_SKILL_RESULT": 14
+    }
 }
